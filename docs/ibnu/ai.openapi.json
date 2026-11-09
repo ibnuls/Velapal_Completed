@@ -1,0 +1,544 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "VelaPal Ibnu AI",
+    "version": "6.1.2"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "summary": "Ready",
+        "operationId": "ready_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/v1/case-runs": {
+      "post": {
+        "summary": "Run",
+        "operationId": "run_internal_v1_case_runs_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/internal/v1/case-runs/{run_id}/resume": {
+      "post": {
+        "summary": "Resume",
+        "operationId": "resume_internal_v1_case_runs__run_id__resume_post",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Run Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResumeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/v1/evidence-index": {
+      "post": {
+        "summary": "Index",
+        "operationId": "index_internal_v1_evidence_index_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IndexRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    },
+    "/internal/v1/evidence-revoke": {
+      "post": {
+        "summary": "Revoke",
+        "operationId": "revoke_internal_v1_evidence_revoke_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevokeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "IndexRequest": {
+        "properties": {
+          "jobId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_:-]+$",
+            "title": "Jobid"
+          },
+          "tenantId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "title": "Tenantid"
+          },
+          "caseId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "title": "Caseid"
+          },
+          "sourceId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "title": "Sourceid"
+          },
+          "sourceVersion": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Sourceversion"
+          },
+          "accessRevision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Accessrevision"
+          },
+          "audience": {
+            "type": "string",
+            "enum": [
+              "PRIVATE",
+              "CASE_SHARED",
+              "PROVIDER_SHARED"
+            ],
+            "title": "Audience"
+          },
+          "mime": {
+            "type": "string",
+            "enum": [
+              "image/png",
+              "image/jpeg",
+              "application/pdf"
+            ],
+            "title": "Mime"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Sha256"
+          },
+          "embeddingSpace": {
+            "type": "string",
+            "maxLength": 120,
+            "pattern": "^[a-z0-9._-]+-dim768$",
+            "title": "Embeddingspace"
+          },
+          "retentionUntil": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Retentionuntil"
+          },
+          "readHandle": {
+            "$ref": "#/components/schemas/ReadHandle"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "jobId",
+          "tenantId",
+          "caseId",
+          "sourceId",
+          "sourceVersion",
+          "accessRevision",
+          "audience",
+          "mime",
+          "sha256",
+          "embeddingSpace",
+          "retentionUntil",
+          "readHandle"
+        ],
+        "title": "IndexRequest"
+      },
+      "ReadHandle": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Url"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expiresat"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "url",
+          "expiresAt"
+        ],
+        "title": "ReadHandle"
+      },
+      "ResumeRequest": {
+        "properties": {
+          "runId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_:-]+$",
+            "title": "Runid"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "PERSONAL_ASSISTANT",
+              "CUSTOMER_PREPARATION",
+              "SELLER_PREPARATION",
+              "SHARED_ASSESSMENT"
+            ],
+            "title": "Purpose",
+            "default": "SHARED_ASSESSMENT"
+          },
+          "expectedContextVersion": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expectedcontextversion"
+          },
+          "traceId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Traceid"
+          },
+          "decisionId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_:-]+$",
+            "title": "Decisionid"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "runId",
+          "expectedContextVersion",
+          "decisionId"
+        ],
+        "title": "ResumeRequest"
+      },
+      "RevokeRequest": {
+        "properties": {
+          "jobId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_:-]+$",
+            "title": "Jobid"
+          },
+          "tenantId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "title": "Tenantid"
+          },
+          "caseId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "title": "Caseid"
+          },
+          "sourceId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "title": "Sourceid"
+          },
+          "revokedUpToVersion": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Revokeduptoversion"
+          },
+          "accessRevision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Accessrevision"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "jobId",
+          "tenantId",
+          "caseId",
+          "sourceId",
+          "revokedUpToVersion",
+          "accessRevision"
+        ],
+        "title": "RevokeRequest"
+      },
+      "RunRequest": {
+        "properties": {
+          "runId": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9_:-]+$",
+            "title": "Runid"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": [
+              "PERSONAL_ASSISTANT",
+              "CUSTOMER_PREPARATION",
+              "SELLER_PREPARATION",
+              "SHARED_ASSESSMENT"
+            ],
+            "title": "Purpose"
+          },
+          "expectedContextVersion": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expectedcontextversion"
+          },
+          "traceId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Traceid"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "runId",
+          "purpose",
+          "expectedContextVersion"
+        ],
+        "title": "RunRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "APIKeyHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Worker-Service-Token"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "verifiedLocalDate": "2026-11-08",
+  "timezone": "Asia/Jakarta",
+  "previousBaseCommit": "80e8ab2e285ab9db0b57333b2749478a0832f12d",
+  "baseCommit": "95cfe69c0ab9ceb5a70d33cd524d95f0e9d3bfae",
+  "inputArchive": "VelaPal-main (1).zip",
+  "inputZipSha256": "3d866687abf55c1ddb2214e5ef518e9084ad5b71afe2c1836786fc7ae39508f9",
+  "sourceComparison": {
+    "changedFiles": [
+      "apps/web/README.md"
+    ],
+    "addedFiles": [],
+    "removedFiles": [
+      "apps/web/docs/CODEX_MASTER_PROMPT.md",
+      "apps/web/docs/VelaPal_FE_API_Contract_V6.1.1.zip",
+      "apps/web/docs/VelaPal_V6_1_PRD_dan_Pembagian_Tugas.pdf",
+      "apps/web/docs/VelaPal_V6_Dispute_Resolution_dan_Arsitektur (1).pdf",
+      "apps/web/docs/admin-ui-audit.md",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/README.md",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/mock-api/package.json",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/mock-api/server.mjs",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/next.config.example.mjs",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/src/services/admin.service.ts",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/src/services/agent.service.ts",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/src/services/api-client.ts",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/src/services/auth.service.ts",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/src/services/disputes.service.ts",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/src/services/operations.service.ts",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/src/services/transactions.service.ts",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/apps/web/src/services/types.ts",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/docs/BE_HANDOFF.md",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/docs/ENDPOINT_MATRIX.md",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/packages/contracts/velapal-v6.1.1-frozen.md",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/tests/contract.test.mjs",
+      "apps/web/docs/extracted/VelaPal_FE_API_V6_1_1/tests/temporary-process-globals.d.ts",
+      "apps/web/docs/velapal-v6.1-api-contract-v2.md"
+    ],
+    "retainedApplicationCodeIdentical": true
+  },
+  "runtimePreserved": {
+    "filesChecked": 31,
+    "byteIdenticalToPreviousIntegration": true
+  },
+  "freshValidation": {
+    "aiPytest": {
+      "passed": 24,
+      "python": "3.12.14"
+    },
+    "apiPrismaGenerate": "PASS",
+    "apiTypeScriptBuild": "PASS",
+    "frontendTests": {
+      "passed": 30
+    },
+    "frontendTypecheck": "PASS",
+    "frontendLint": "PASS",
+    "frontendApiModeBuild": "PASS"
+  },
+  "historicalEvidence": {
+    "fullStackChecks": 30,
+    "baseCommit": "80e8ab2e285ab9db0b57333b2749478a0832f12d",
+    "rerunOnNewBase": false,
+    "reason": "Application runtime and dependency locks unchanged; unit/build/installation verification rerun."
+  },
+  "geminiLiveTested": false,
+  "paypalCalled": false,
+  "browserRerun": false
+}

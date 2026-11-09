@@ -1,0 +1,136 @@
+{
+  "baseCommit": "80e8ab2e285ab9db0b57333b2749478a0832f12d",
+  "environment": {
+    "database": "PGlite PostgreSQL wire protocol",
+    "objectStorage": "Moto S3 simulator",
+    "qdrant": "official v1.11.0 binary",
+    "api": "real Express + Prisma source",
+    "ai": "FastAPI fixture model + durable SQLite LangGraph",
+    "geminiLiveTested": false,
+    "paypalCalled": false
+  },
+  "passed": 30,
+  "checks": [
+    {
+      "name": "AI internal endpoints reject missing worker token",
+      "passed": true
+    },
+    {
+      "name": "Express context rejects missing callback token",
+      "passed": true
+    },
+    {
+      "name": "Personal assistant completes through real Express outbox and checkpoint",
+      "passed": true
+    },
+    {
+      "name": "Fixture model and synthetic business data are labeled truthfully",
+      "passed": true
+    },
+    {
+      "name": "Offline AI job stays queued for retry instead of falsely completing",
+      "passed": true
+    },
+    {
+      "name": "Queued work recovers after AI returns",
+      "passed": true
+    },
+    {
+      "name": "Customer cannot run seller preparation",
+      "passed": true
+    },
+    {
+      "name": "Uploaded real PDF bytes pass object storage and Qdrant ingestion",
+      "passed": true
+    },
+    {
+      "name": "CUSTOMER_PREPARATION receives only own private sources",
+      "passed": true
+    },
+    {
+      "name": "CUSTOMER_PREPARATION cannot retrieve opponent private text",
+      "passed": true
+    },
+    {
+      "name": "SELLER_PREPARATION receives only own private sources",
+      "passed": true
+    },
+    {
+      "name": "SELLER_PREPARATION cannot retrieve opponent private text",
+      "passed": true
+    },
+    {
+      "name": "Sharing a new source version enqueues and completes reindexing",
+      "passed": true
+    },
+    {
+      "name": "Shared assessment executes evidence and mediation functions",
+      "passed": true
+    },
+    {
+      "name": "Conflicting evidence pauses for human review",
+      "passed": true
+    },
+    {
+      "name": "Shared result contains no private customer or seller canary",
+      "passed": true
+    },
+    {
+      "name": "Missing manifest signature fails closed",
+      "passed": true
+    },
+    {
+      "name": "Duplicate checkpoint is idempotent",
+      "passed": true
+    },
+    {
+      "name": "Duplicate delivery does not increment controlVersion",
+      "passed": true
+    },
+    {
+      "name": "Admin decision persists and resumes the durable graph after AI restart",
+      "passed": true
+    },
+    {
+      "name": "Admin resume preserves uncertainty and does not decide a refund",
+      "passed": true
+    },
+    {
+      "name": "Backend supplies current authoritative UI bindings",
+      "passed": true
+    },
+    {
+      "name": "Invented mediation binding is rejected",
+      "passed": true
+    },
+    {
+      "name": "Human can draft a proposal using the assessed source manifest",
+      "passed": true
+    },
+    {
+      "name": "AI and draft proposal do not invoke a financial operation",
+      "passed": true
+    },
+    {
+      "name": "Revocation hides stale assessment and removes proposal bindings",
+      "passed": true
+    },
+    {
+      "name": "Previously returned run is redacted after ACL revision change",
+      "passed": true
+    },
+    {
+      "name": "Revocation physically removes indexed source chunks",
+      "passed": true
+    },
+    {
+      "name": "Revocation invalidates unexecuted proposal",
+      "passed": true
+    },
+    {
+      "name": "Stale checkpoint cannot overwrite the new ACL snapshot",
+      "passed": true
+    }
+  ],
+  "error": null
+}
